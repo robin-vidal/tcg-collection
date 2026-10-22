@@ -12,3 +12,24 @@ export const SAMPLE_CARDS = Object.freeze([
   { id: "7", name: "Ptéra",      set: SETS[2], rarity: RARITIES[2], price: 9.9,   quantity: 0 },
   { id: "8", name: "Amonistar",  set: SETS[2], rarity: RARITIES[1], price: 0.8,   quantity: 2 },
 ]);
+
+export function parseRarity(value) {
+  return RARITIES.find(r => r === value)
+}
+
+export function isRare(card) {
+  return card.rarity === RARITIES[2] || card.rarity === RARITIES[3];
+}
+
+const priceFormatter = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" });
+export function formatPrice(price) {
+   return priceFormatter.format(price);
+}
+
+export function copyCount(cards) {
+  return cards.reduce((acc, card) => acc + card.quantity, 0);
+}
+
+export function collectionValue(cards) {
+  return cards.reduce((acc, card) => acc + card.quantity * card.price, 0);
+}
