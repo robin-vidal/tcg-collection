@@ -23,3 +23,7 @@ J'en déduis que cette `div` est celle ciblée par `document.getElementById('roo
 Vite qui fait cela ?**
 
 C'est Vite qui fait cela, cette fonctionnalité s'appelle le **Hot Module Replacement**. Seul le module modifié est remplacé et non toute la page contrairement au **Hot Reload**.
+
+**Q0.3 Combien de fichiers HTML votre application contient-elle ? Que signifie « SPA » ?**
+
+L'application ne contient qu'un seul fichier HTML : `index.html`. SPA signifie **Single Page Application**, cela consiste en le chargement dynamique des éléments de l'application dans un unique HTML.
