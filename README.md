@@ -40,3 +40,9 @@ Uncaught TypeError: can't define array index property past the end of an array w
 ```
 
 Le role d'`Object.freeze` est de rendre ce tableau non-modifiable. Il est donc impossible d'insérer ou de retirer les données présentes à l'intérieur. Il est nécessaire de l'utiliser pour cet usage au lieu de `const` car ce dernier interdit seulement la réassignation de la variable et non sa modification.
+
+**Q1.2** Dans `SAMPLE_CARDS`, remplacez une rareté par "legendaire". Une erreur est-elle signalée ? Que
+devient la carte à l'écran (couleur, badge) ? Comment pourrait-on détecter ce genre de faute plus tôt ?
+(Remettez la valeur.)  
+
+Aucune erreur n'est signalée car le JS fait du typage dynamique, n'importe quelle string est acceptée. La carte est cependant affichée sans badge/couleur car le composant cherche `"legendaire"` dans `RARITIES` et ce n'est pas une rareté existante. On pourrait utiliser une validation au runtime avec `parseRarity` au moment de l'insertion ou remplacer les `string` par un ENUM en utilisant TypeScript par exemple.
