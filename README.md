@@ -47,7 +47,12 @@ devient la carte à l'écran (couleur, badge) ? Comment pourrait-on détecter ce
 
 Aucune erreur n'est signalée car le JS fait du typage dynamique, n'importe quelle string est acceptée. La carte est cependant affichée sans badge/couleur car le composant cherche `"legendaire"` dans `RARITIES` et ce n'est pas une rareté existante. On pourrait utiliser une validation au runtime avec `parseRarity` au moment de l'insertion ou remplacer les `string` par un ENUM en utilisant TypeScript par exemple.
 
-**Q1.3** Pourquoi le formateur Intl.NumberFormat est-il créé hors de formatPrice plutôt qu'à chaque
+**Q1.3** Pourquoi le formateur `Intl.NumberFormat` est-il créé hors de `formatPrice` plutôt qu'à chaque
 appel ?  
 
 On crée le formateur en dehors de la fonction car il est stateless et peut être réutilisé d'un appel de fonction à l'autre. Cela évite de faire une allocation sur la heap supplémentaire à chaque appel de la fonction.
+
+**Q1.4** Dans le JSX, `{SAMPLE_CARDS.length}` affiche 8. Que sont exactement les accolades `{ }` dans du
+JSX ? Peut-on y écrire un `if` ?  
+
+Les accolades `{ }` indiquent que le code présent au milieu est du code JavaScript à évaluer. On ne peut pas y écrire de `if` car cela ne supporte que les expressions mais pas les instructions.
